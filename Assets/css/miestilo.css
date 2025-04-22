@@ -1,0 +1,152 @@
+/*Esta es la hoja de estilo de css, normalmente solo se usa una*/
+
+p{ 
+  font-family: calibri; /*tipo de letras*/
+  text-align: center; /*Alineacion de texto*/
+  color: rgb(0, 0, 0); /*Color de la fuente*/
+  font-size: 30 px; /*tamaño de la fuente :)*/
+  font-weight: lighter; /* Negrito o fuerte*/
+  margin-inline-start: 5%;
+  margin-inline-end: 10%;
+}
+body{
+  background-color:rgb(253, 253, 253); 
+  margin: 0;
+  padding: 10 px;
+  width: 100%;
+  height: 100%;
+}
+/*Color y alineación de la etiqueta h1*/
+h1{ color: #eea620;
+  font-weight: bold; 
+  text-align: center; /*Alineación*/
+
+}
+
+h2{
+  color:#eea620;
+  font-weight: bold;
+
+}
+
+h3{
+  color:#ffffff;
+  font-weight: bold;
+}
+
+.topnav {
+  background-color: #eea620;
+  overflow: hidden;
+}
+.rest {
+padding-left: 5%;
+padding-right: 5%;
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: inline-start;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Helvetica;
+  font-weight: bold;
+} 
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+  /* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ffffff;
+  color: #eea620;
+}
+
+  /* Add an active class to highlight the current page */
+.topnav a.active { 
+  background-color: #000000;
+  color: #ffffff;
+}
+
+  /* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+.myCarousel {
+  text-align: left;
+  padding: 10 px;
+  box-sizing: content-box;
+}
+
+.carousel-caption{
+  display: flex;
+  padding: 10 px;
+}
+
+img{
+  align-items: center;
+  /*border-radius: 15%;*/
+  width: fit-content;
+}
+
+.Imagen{
+  display: block;
+  width: 50%;
+  height: 30%;
+  align-items: center;
+  
+  padding: 10% px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.card {
+  width: 35%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #eea620;
+  border: 3px solid #eea620;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.card img{
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+
+.card-title {
+  margin-top: 10px;
+  color:rgb(0, 0, 0);
+  font-weight: bold; 
+}
+
+.price {
+  font-weight: bold;
+}
+
+button {
+  background-color: #f8aa61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+footer{
+  background-color: #eea620;
+  color:#ffffff;
+}
