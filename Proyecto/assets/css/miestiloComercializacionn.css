@@ -1,0 +1,125 @@
+/* Variables de colores */
+:root {
+  --azul: #005f99;
+  --naranja: #ff7a00;
+  --blanco: #ffffff;
+  --gris-claro: #f5f5f5;
+  --gris-oscuro: #333333;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+}
+
+
+/* Header */
+header.conta {
+  background-color: var(--azul);
+  color: var(--blanco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header.conta h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Main Content */
+main.content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Sections */
+main.content section {
+  margin-bottom: 3rem;
+}
+
+main.content section h2 {
+  color: var(--azul);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  border-bottom: 2px solid var(--naranja);
+  padding-bottom: 0.5rem;
+}
+
+main.content section p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Imágenes */
+.mapa-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Listas */
+.list-container {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-container li {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--gris-claro);
+  border-left: 5px solid var(--naranja);
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.list-container li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Links */
+a {
+  color: var(--naranja);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header.conta h1 {
+    font-size: 2rem;
+  }
+
+  main.content {
+    padding: 1rem;
+  }
+
+  main.content section h2 {
+    font-size: 1.5rem;
+  }
+
+  .list-container li {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,190 @@
+/* --- General --- */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Imagen principal */
+.imagen-principal img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Título principal --- */
+.titulo-contactos {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+}
+
+.titulo-contactos h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #333;
+}
+
+/* --- Redes sociales --- */
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  background-color: #e9ecef;
+}
+
+.redes-sociales a img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.redes-sociales a img:hover {
+  transform: scale(1.2);
+}
+
+/* --- Formulario de consulta --- */
+.formulario {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.consulta {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.consulta h2 {
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+.consulta p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Estilos de inputs y textarea */
+form input[type='text'],
+form input[type='email'],
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+/* Botón de envío */
+form button[type='submit'] {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+/* --- Detalles de contacto --- */
+.detalles-contacto {
+  background-color: #f1f3f5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.detalle {
+  flex: 1 1 250px;
+  background-color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detalle h2 {
+  margin-bottom: 0.5rem;
+  color: #343a40;
+}
+
+.detalle a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.detalle a:hover {
+  text-decoration: underline;
+}
+
+/* --- Ubicación --- */
+.ubicacion {
+  background-color: #ffffff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.ubicacion h2 {
+  color: #343a40;
+}
+
+.ubicacion p {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+/* Contenedor del mapa */
+.mapa-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.mapa-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.mapa-img:hover {
+  transform: scale(1.03);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .redes-sociales {
+    flex-direction: column;
+  }
+
+  .detalles-contacto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-principal img {
+    height: 200px;
+  }
+}

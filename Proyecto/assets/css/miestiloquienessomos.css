@@ -1,0 +1,138 @@
+:root {
+  --naranja: #ff7a00;
+  --azul: #005f99;
+  --gris-claro: #f5f5f5;
+  --gris-oscuro: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--gris-oscuro);
+  margin: 0;
+  padding: 0;
+  background-color: var(--gris-claro);
+}
+
+/* Sección: Quiénes Somos */
+#quienes-somos {
+  background-color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#quienes-somos h2 {
+  color: var(--azul);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#quienes-somos p {
+  font-size: 1.1rem;
+  margin: 10px auto;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Sección: Nuestra Historia */
+.section-about {
+  background-color: var(--gris-claro);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-about h2 {
+  color: var(--azul);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.section-about p {
+  font-size: 1.1rem;
+  margin: 10px auto;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.imagen-principal {
+  margin-top: 30px;
+}
+
+.limited-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.letra {
+  color: var(--azul);
+}
+/* Sección: Nuestro Equipo */
+.section-team {
+  background-color: var(--naranja);
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+}
+
+.section-team h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.section-team p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.team-member {
+  background-color: white;
+  color: var(--gris-oscuro);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(255, 122, 0, 0.3);
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  color: var(--naranja);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+}
