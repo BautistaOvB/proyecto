@@ -1,0 +1,60 @@
+:root {
+  --naranja: #ff7a00;
+  --azul: #005f99;
+}
+
+/* Scoped a la clase .terminos para no afectar otras páginas */
+.terminos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+/* Acordeón */
+.terminos-accordion {
+  margin-top: 20px;
+}
+
+.terminos-accordion-item {
+  border: 1px solid var(--naranja);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Header cerrado */
+.terminos-accordion-header {
+  background-color: var(--naranja);
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Header abierto (activo) */
+.terminos-accordion-item.active .terminos-accordion-header {
+  background-color: var(--azul);
+}
+
+/* Contenido */
+.terminos-accordion-content {
+  display: none;
+  padding: 15px 20px;
+  background-color: #f1f1f1;
+  color: #333;
+  border-top: 1px solid #ddd;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
