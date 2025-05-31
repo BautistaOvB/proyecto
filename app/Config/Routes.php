@@ -14,8 +14,8 @@ $routes->get('comercializacion', 'Home::comercializaciones');
 
 /*Rutas para el login*/
 $routes->get('/login', 'Home::login');
-$routes->post('/enviarlogin','Login_controller::auth');
-$routes->get('/panel', 'Panel_controller::index',['filter'=>'auth']);
-$routes->get('/logout', 'Login_controller::logout');
-
+$routes->post('/enviarlogin','LoginController::auth');
+$routes->get('/panel', '$::index',['filter'=>'auth']);
+$routes->get('/logout', 'LoginController::logout');
+$routes->get('/Register', 'RegisterController::login');
 ?>

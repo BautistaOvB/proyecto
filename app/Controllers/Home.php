@@ -30,7 +30,7 @@ class Home extends BaseController
 
     public function comercializaciones(){
         echo view('Views\header.php');
-        echo view('Views\comercializacionn.php');
+        echo view('Views\comercializacion.php');
         echo view('Views\footer.php');
     }
 }

@@ -21,13 +21,13 @@
 
         <section class="redes-sociales">
             <a href="https://www.instagram.com/"    >
-                <img src="<?= base_url('assets/img/instagram.png'); ?>" alt="Instagram">
+                <img src="<?= base_url('assets/img/IG-icono.png'); ?>" alt="Instagram">
             </a>
             <a href="https://www.facebook.com/"    >
-                <img src="<?= base_url('assets/img/facebook.png'); ?>" alt="Facebook">
+                <img src="<?= base_url('assets/img/FB-icono.png'); ?>" alt="Facebook">
             </a>
             <a href="https://outlook.live.com/"    >
-                <img src="<?= base_url('assets/img/gmail.png'); ?>" alt="Correo Electrónico">
+                <img src="<?= base_url('assets/img/mail.png'); ?>" alt="Correo Electrónico">
             </a>
         </section>
 
