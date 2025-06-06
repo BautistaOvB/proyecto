@@ -1,0 +1,15 @@
+<?php
+
+namespace app\Models;
+use CodeIgniter\Model;
+class Venta_Detalle_Model extends Model
+{
+    protected $table = 'ventaDetalle';
+    protected $primaryKey = 'id_vendet';
+    protected $allowedFields = ['id_vendet', "nombre_prod", "img", "precio", "precio_vta", "stock", "stock_min", "eliminado"];
+
+    public function getVentaDetalle()
+    {
+        return $this->findAll();
+    }
+}

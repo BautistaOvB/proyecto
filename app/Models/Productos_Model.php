@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace app\Models;
 use CodeIgniter\Model;
 
 class Productos_Model extends Model

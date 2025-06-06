@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace app\Models;
 use CodeIgniter\Model;
 
 class Usuarios_model extends Model
@@ -8,7 +8,8 @@ class Usuarios_model extends Model
     protected $primaryKey = 'id_usuario';
     protected $allowedFields = ['ID','nombre', 'apellido', 'usuario', 'email', 'pass', 'perfil_id', 'baja']
 
-    public function getUsuarios(){
+    public function getUsuarios()
+    {
         return $this->findAll();
     }
 }

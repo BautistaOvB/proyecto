@@ -66,6 +66,18 @@ class ProductoController extends Controller
             return $this->response->redirect(site_url('crear'));
         }
     }
+    public function crearProducto(){
 
+        $modelocategorias = new Categoria_model();
+        $data['categorias'] = $modelocategorias->getCategorias();
 
+        $modeloProducto = new Productos_Model();
+        $data['obj'] = $modeloProducto->orderBy('id', 'desc')->findAll();
+        
+        $dato['titulo']='Alta Producto';
+        echo view('front/head_view', $dato);
+        echo view('front/nav_view');
+        echo view('back/productos/alta_producto_view', $data);
+        echo view('front/footer_view');
+    }
 }
