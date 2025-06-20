@@ -1,83 +1,140 @@
 <?php
 
 namespace App\Controllers;
-Use App\Models\Productos_Model;
-Use App\Models\Usuarios_Models;
-Use CodeIgniter\Controller;
 
-class ProductoController extends Controller
-{
-    public function_construct(){
-        herlper(['url', 'form']);
-        $session=session();
+use App\Models\ProductoModel;
+use CodeIgniter\Controller;
+
+class ProductoController extends Controller {
+
+    protected $productoModel;
+
+    public function index() {
+        $productoModel = new ProductoModel();
+        $data['productos'] = $productoModel->obtener_productos();
+        return view('productos', $data);
     }
 
-    public function index()
+    
+
+    public function __construct() {
+        $this->productoModel = new ProductoModel();
+    }
+
+    public function admin() {
+        $data['productos'] = $this->productoModel->getActiveProducts();
+        return view('admin', $data);
+    }
+
+    public function crear() {
+        return view('header') . view('crear_producto') . view('footer');
+    }
+
+    public function guardar()
     {
-        $productoModel = new Productos_Model();
-        $data['productos'] = $productoModel->getProductos();
-
-        $dato['titulo'] = 'Crud_productos';
-        echo view ('front/head_view', $dato);
-        echo view ('front/nav_view');
-        echo view('back/productos/producto_nuevo_view', $data);
-        echo view('font/footer-view');
+        $data = [
+            'nombre_prod' => $this->request->getPost('nombre'),
+            'imagen' => $this->request->getPost('imagen'),
+            'categoria_id' => $this->request->getPost('categoria_id'),
+            'precio' => $this->request->getPost('precio'),
+            'precio_venta' => $this->request->getPost('precio_venta'),
+            'stock' => $this->request->getPost('stock'),
+            'stock_min' => $this->request->getPost('stock_min'),
+            'eliminado' => 'NO'
+        ];
+    
+        $productoModel = new ProductoModel(); // Crear una instancia del modelo
+        $productoModel->insert($data); // Llamar al método insert del modelo
+    
+        // Redireccionar a la página de productos
+        return redirect()->to('administrador/productos/admin');
+    }
+    
+    
+    
+    
+    public function editar($id) {
+        $data['producto'] = $this->productoModel->find($id);
+        return view('header') . view('editar_producto', $data) . view('footer');
     }
 
-    public function store() {
-        //construtruccion de reglas de validacion
-        $input = this->validate([
-            'nombre_prod'=> 'required|min_lengh[3]',
-            'categoria_prod'=> 'is_not_unique[categorias.id]',
-            'precio' => 'required|numeric',
-            'precio_vta' => 'required|numeric',
-            'imagen' => 'uploaded[imagen]'
-        ]);
+    public function actualizar() {
+        $id = $this->request->getPost('id');
+        $data = [
+            'nombre_prod' => $this->request->getPost('nombre'),
+            'imagen' => $this->request->getPost('imagen'),
+            'categoria_id' => $this->request->getPost('categoria_id'),
+            'precio' => $this->request->getPost('precio'),
+            'precio_venta' => $this->request->getPost('precio_venta'),
+            'stock' => $this->request->getPost('stock'),
+            'stock_min' => $this->request->getPost('stock_min'),
+            'eliminado' => $this->request->getPost('eliminado')
+        ];
+        $this->productoModel->update($id, $data);
+        return redirect()->to('administrador/productos/admin');
+    }
 
-        $productoModel = new Productos_Model();
-        
-        if(!$input){
-            $categoriaModel =new categoria_model();
-            $data['categorias'] = $categoria_model->getCategorias();
-            $data['validation'] =$this->validator;
+    public function eliminar($id) {
+        $this->productoModel->delete($id);
+        return redirect()->to('administrador/productos/admin');
+    }
 
-            $dato['titulo'] = 'Alta';
-            echo view('front/head_view', $dato);
-            echo view('front/nav_view');
-            echo view('back/productos/alta_producto_view', $data);
-        } else {
-            $img = $this->request->getVar('nombre_prod');
-            //Se obtiene el nombre del archivo de la imagen (sin la ruta)
-            'imagen' => $this->getName();
-            
-            $nombre_aleatorio = $img->getRandomname();
+    public function mostrarEliminados() {
+        $data['productos'] = $this->productoModel->getInactiveProducts();
+        return view('header') . view('productos_eliminados', $data) . view('footer');
+    }
 
-            $img->move(ROOTPATH . 'assets/uploads', $nombre_aleatorio);
+    public function restaurar($id) {
+        $this->productoModel->restore($id);
+        return redirect()->to('administrador/productos/eliminados');
+    }
 
-            $data = [
-                'nombre_prod' => $this->request->getVar('nombre_prod'),
-                'imagen' => $img ->getName(),
-                'categoria_id' => $this->request->getVar('categoria_prod'),
-                'precio' => $this->request->getVar('precio')
-            ];
-            $producto = new Productos_Model();
-            $producto->insert($data);
-            session()->setFlashdata('success', 'La alta se dio de alta exitosamente. Alta alta');
-            return $this->response->redirect(site_url('crear'));
+    public function agregarAlCarrito($id) {
+        $producto = $this->productoModel->find($id);
+
+        if ($producto && $producto['eliminado'] === 'NO') {
+            $carrito = session()->get('carrito');
+
+            if (!$carrito) {
+                $carrito = [
+                    $id => [
+                        'producto' => $producto,
+                        'cantidad' => 1
+                    ]
+                ];
+            } else {
+                if (isset($carrito[$id])) {
+                    $carrito[$id]['cantidad']++;
+                } else {
+                    if ($producto['stock'] > 0) {
+                        $carrito[$id] = [
+                            'producto' => $producto,
+                            'cantidad' => 1
+                        ];
+
+                        $producto['stock']--;
+                        $this->productoModel->update($id, ['stock' => $producto['stock']]);
+                    } else {
+                        return redirect()->back()->with('error', 'No hay suficiente stock disponible para este producto.');
+                    }
+                }
+            }
+
+            session()->set('carrito', $carrito);
         }
-    }
-    public function crearProducto(){
 
-        $modelocategorias = new Categoria_model();
-        $data['categorias'] = $modelocategorias->getCategorias();
-
-        $modeloProducto = new Productos_Model();
-        $data['obj'] = $modeloProducto->orderBy('id', 'desc')->findAll();
-        
-        $dato['titulo']='Alta Producto';
-        echo view('front/head_view', $dato);
-        echo view('front/nav_view');
-        echo view('back/productos/alta_producto_view', $data);
-        echo view('front/footer_view');
+        return redirect()->back();
     }
+    
+
+    public function verCarrito() {
+        $carrito = session()->get('carrito');
+
+        if (!$carrito) {
+            return "El carrito está vacío";
+        }
+
+        return view('carrito', ['carrito' => $carrito]);
+    }
+
 }

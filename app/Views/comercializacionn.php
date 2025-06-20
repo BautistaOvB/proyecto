@@ -52,7 +52,7 @@
             <p>En Tatu nos enfocamos en brindar toda la información necesaria para tu satisfacción. Para más consultas, visita nuestro <a href="faq.html">FAQ</a> o contáctanos.</p>
         </section>
     </main>
-     
+    
 </body>
 
 </html>

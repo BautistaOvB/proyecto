@@ -1,0 +1,75 @@
+
+:root {
+  --naranja: #ff7a00;
+  --azul: #005f99;
+  --gris-claro: #f5f5f5;
+  --gris-oscuro: #333;
+}
+/* Estilos específicos para la página de gestión de consultas */
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título */
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(36, 28, 28);
+    background-color:var(--azul);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Estilos para los botones */
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: var(--naranja); /* Verde */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Rojo */
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Estilos para hacer la tabla responsive */
+@media (max-width: 768px) {
+    .table th:nth-child(4),
+    .table td:nth-child(4),
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        display: none; /* Ocultar Mensaje y Fecha en pantallas pequeñas */
+    }
+}

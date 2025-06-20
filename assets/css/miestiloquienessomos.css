@@ -13,15 +13,35 @@ body {
   background-color: var(--gris-claro);
 }
 
+.section-quienes {
+  background-color: var(--azul);
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+}
+
+.section-quienes h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.section-quienes p {
+  font-size: 1.1rem;
+  margin: 10px auto;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
 /* Sección: Quiénes Somos */
 #quienes-somos {
-  background-color: white;
+  background-color: rgb(70, 26, 244);
   padding: 60px 20px;
   text-align: center;
 }
 
 #quienes-somos h2 {
-  color: var(--azul);
+  color: white;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -41,7 +61,7 @@ body {
 }
 
 .section-about h2 {
-  color: var(--azul);
+  color: white;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -65,7 +85,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .letra {
-  color: var(--azul);
+  color: white;
 }
 /* Sección: Nuestro Equipo */
 .section-team {
@@ -78,6 +98,7 @@ body {
 .section-team h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: white;
 }
 
 .section-team p {
@@ -119,7 +140,7 @@ body {
 }
 
 .team-member h3 {
-  color: var(--naranja);
+  color: white;
   margin-bottom: 10px;
   font-size: 1.4rem;
 }

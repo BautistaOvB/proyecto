@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/contacto.css'); ?>">
 </head>
 <body>
-
+    
     <div class="imagen-principal">
         <img src="<?= base_url('assets/img/no-dudes-en-llamarnos.jpg'); ?>" alt="Imagen Principal">
     </div>
@@ -37,7 +37,7 @@
                 <p>Horario de Atención: Lunes a Viernes de 8 a 13 hs. y de 14 a 18 hs.</p>
             </div>
 <!-- fix method -->
-            <form action="<?= base_url('...'); ?>" method="POST">
+            <form action="<?= base_url('consultas/guardar'); ?>" method="POST">
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" id="nombre" name="nombre" required autocomplete="name"><br>
 
@@ -75,7 +75,7 @@
                 </a>
             </div>
         </section>
-    
+
     </main>
 
 </body>

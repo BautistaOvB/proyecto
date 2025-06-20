@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login </title>
-    <link rel="stylesheet" href= "<?php echo base_url("assets/css/estilo.css"); ?>">
-    <link rel="stylesheet" href="assets/css/contacto.css">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="assets/css/miestiloSesion.css">
 </head>
 <body>
-    <header class="conta">
-        <h1>Inicia sesion</h1>
-    </header>
-
-    <main class="content"> <!-- fix img--> 
-    <section class="formulario">
-<!-- fix method -->
-        <form action="<?= base_url('LoginController'); ?>" method="POST">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required autocomplete="email"><br>                <label for=" password"> password:</label><br>
-            <textarea id="password" name="password" required></textarea><br>
-            
-            <button type="submit">Iniciar Sesion</button>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Inicio de Sesión</h2>
+            </div>
+            <form method="post" action="<?php echo base_url('/enviarLogin'); ?>">
+                <?php if (!empty(session()->getFlashdata('msg'))): ?>
+                    <div class="alert alert-danger"><?= session()->getFlashdata('msg'); ?></div>
+                <?php endif; ?>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Ingrese su email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass" class="form-label">Contraseña</label>
+                        <input type="password" id="pass" name="pass" class="form-control" placeholder="password" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </div>
             </form>
-        </section>
-        </main>
-    
+            <div class="card-body">
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="register">
+                    <a class="primary" href="<?php echo base_url('/register'); ?>">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

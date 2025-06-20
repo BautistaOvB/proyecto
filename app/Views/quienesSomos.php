@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiénes Somos | Tatu</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href= "<?php echo base_url("assets/css/estilo.css"); ?>">
     <link rel="stylesheet" href="assets/css/miestiloquienessomos.css">
 </head>
 <body>
-    <section id="quienes-somos" class="background-white">
+    <section id="quienes-somos" class="section-quienes background">
         <div class="container">
             <h2>Quiénes Somos</h2>
             <p>Somos una empresa especializada en el transporte de encomiendas, comprometida con ofrecer seguridad, eficiencia y el mejor precio a nuestros clientes.</p>
