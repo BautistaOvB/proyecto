@@ -37,14 +37,14 @@
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('quienesSomos'); ?>">Quiénes somos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('contactos'); ?>">Contactos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('productos'); ?>">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('terminos'); ?>">Terminos y Condiciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('terminos'); ?>">terminos y condiciones</a></li>
                         <?php if (session()->get('is_logged')) : ?>
                             <?php if (session()->get('perfil_id') == 1) : ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
-                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Administrador <img src="<?php echo base_url('assets/img/addmin.png'); ?>"
-                                                        alt="Administrador" width="32" height="32" class="rounded-circle">
+                                                         alt="Administrador" width="32" height="32" class="rounded-circle">
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                         <li><a class="dropdown-item" href="<?php echo base_url('administrador/productos/admin'); ?>">CRUD Prod</a></li>
@@ -60,12 +60,12 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
-                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Usuario <img src="<?php echo base_url('assets/img/usser.png'); ?>"
-                                                        alt="Usuario" width="32" height="32" class="rounded-circle">
+                                                         alt="Usuario" width="32" height="32" class="rounded-circle">
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    
+                                     
                                         <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                                         <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
                                         <li><hr class="dropdown-divider"></li>

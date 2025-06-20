@@ -6,7 +6,22 @@
     <title>Registro</title>
     <link rel="stylesheet" href="assets\css\registerEstilo.css">
     <link rel="stylesheet" href="assets\css\miEstiloRegister.css">
-    
+    <style>
+        @media screen and (max-width: 10000px) {
+            .container {
+                width: 90%;
+            }
+            .card {
+                width: 100%;
+            }
+            .card-body {
+                padding: 20px;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-2 mb-5 d-flex justify-content-center">

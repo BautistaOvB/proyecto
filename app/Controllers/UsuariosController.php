@@ -1,29 +1,31 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\UsuariosModel;
+use App\Models\usuario_Model;
 use CodeIgniter\Controller;
 
 class UsuariosController extends BaseController
 {
     public function index()
     {
-        $model = new UsuariosModel();
+        $model = new usuario_Model();
         $data['usuarios'] = $model->where('baja', 'NO')->findAll();
 
-        echo view('usuarios/index', $data);
+        echo view('Views\header.php');
+        echo view('Views\usuarios\index.php', $data);
+        echo view('Views\footer.php');
     }
 
     public function create()
     {
-        echo view('header');
-        echo view('usuarios/create');
-        echo view('footer');
+        echo view('Views\header.php');
+        echo view('Views\usuarios\create.php');
+        echo view('Views\footer.php');
     }
 
     public function store()
     {
-        $model = new UsuariosModel();
+        $model = new usuario_Model();
 
         $data = [
             'nombre' => $this->request->getVar('nombre'),
@@ -36,22 +38,22 @@ class UsuariosController extends BaseController
         ];
 
         $model->insert($data);
-        return redirect()->to('administrador/usuarios');
+        return redirect()->to('administrador\usuarios');
     }
 
     public function edit($id)
     {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
         $data['usuario'] = $model->find($id);
 
-        echo view('header');
-        echo view('usuarios/edit', $data);
-        echo view('footer');
+        echo view('Views\header.php');
+        echo view('Views\usuarios\edit.php', $data);
+        echo view('Views\footer.php');
     }
 
     public function update($id)
     {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
 
         $data = [
             'nombre' => $this->request->getVar('nombre'),
@@ -67,33 +69,37 @@ class UsuariosController extends BaseController
         }
 
         $model->update($id, $data);
-        return redirect()->to('administrador/usuarios');
+        return redirect()->to(view('Views\header.php') . view('Views\administrador\administrador\usuarios.php') . view('Views\footer.php'));
     }
 
     public function delete($id)
     {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
         $model->update($id, ['baja' => 'SI']);
-        return redirect()->to('administrador/usuarios');
+        return redirect()->to(view('Views\header.php') . view('Views\administrador\administrador\usuarios.php') . view('Views\footer.php'));
+
     }
 
     public function baja()
     {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
         $data['usuarios'] = $model->where('baja', 'SI')->findAll();
 
-        echo view('usuarios/baja', $data);
-    
+        echo view('Views\header.php');
+        echo view('Views\usuarios\baja.php', $data);
+        echo view('Views\footer.php');
+       
     }
 
     public function alta($id)
     {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
         $model->update($id, ['baja' => 'NO']);
-        return redirect()->to('administrador/usuarios/baja');
+        return redirect()->to(view('Views\header.php') . view('Views\administrador\usuarios\baja.php') . view('Views\footer.php'));
+
     }
 
-    public function formValidation()
+     public function formValidation()
     {
         // Validación de formulario
         $rules = [
@@ -114,7 +120,7 @@ class UsuariosController extends BaseController
 
         if ($this->validate($rules, $messages)) {
             // Los datos del formulario son válidos, procede a guardar en la base de datos
-            $model = new UsuarioModel();
+            $model = new usuario_Model();
 
             $data = [
                 'nombre' => $this->request->getVar('nombre'),
@@ -128,12 +134,13 @@ class UsuariosController extends BaseController
 
             $model->insert($data);
             return redirect()->to('administrador/usuarios')->with('success', 'Usuario registrado correctamente');
+
         } else {
             // Hay errores de validación, mostrar el formulario con errores
             $data['validation'] = $this->validator; // Pasa el objeto de validación a la vista
-            echo view('header');
-            echo view('administrador/usuarios/create', $data);
-            echo view('footer');
+            echo view('Views\header.php');
+            echo view('Views\administrador\usuarios\create.php', $data);
+            echo view('Views\footer.php');
         }
     }
 }

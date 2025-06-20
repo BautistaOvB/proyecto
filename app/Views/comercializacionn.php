@@ -15,7 +15,7 @@
     <main class="content"> <!-- fix img--> 
         <section>
             
-            <h2>Tipos de Entregas</h2>
+            <h2>Tipos de Entregas hola como tas</h2>
             <p>En Tatu ofrecemos diferentes modalidades de entrega para adaptarnos a tus necesidades:</p>
             <ul class="list-container">
                 <li>Entrega estándar: en 3 a 5 días hábiles.</li>
@@ -52,7 +52,7 @@
             <p>En Tatu nos enfocamos en brindar toda la información necesaria para tu satisfacción. Para más consultas, visita nuestro <a href="faq.html">FAQ</a> o contáctanos.</p>
         </section>
     </main>
-    
+     
 </body>
 
 </html>

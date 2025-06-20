@@ -22,13 +22,14 @@ class Database extends Config
     public string $defaultGroup = 'default';
 
     /**
-     * The default database connection.
+     * The default database connection.// si no andan probar:  'charset'  => 'utf8mb4','DBCollat' => 'utf8mb4_general_ci', // cambiar esto si no anda por '127.0.0.1' 
      */
+    
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
+        'hostname'     => '127.0.0.1',  
         'username'     => 'root',
-        'password'     => '',
+        'password'     => 'Granate_999',
         'database'     => 'tatu',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -51,10 +52,10 @@ class Database extends Config
      */
     public array $tests = [
         'DSN'         => '',
-        'hostname'    => 'localhost',
+        'hostname'    => '127.0.0.1',
         'username'    => 'root',
-        'password'    => '',
-        'database'    => ':Proyecto:',
+        'password'    => 'Granate_999',
+        'database'    => ':tatu:',
         'DBDriver'    => 'MySQLi',
         'DBPrefix'    => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
         'pConnect'    => false,

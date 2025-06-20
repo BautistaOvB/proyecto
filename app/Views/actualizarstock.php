@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar que se recibieron datos válidos
     if (isset($data['items']) && is_array($data['items'])) {
         // Conectar a la base de datos (debes ajustar los parámetros según tu configuración)
-        $dbHost = 'localhost'; // Host de la base de datos
-        $dbUser = 'usuario';   // Usuario de la base de datos
-        $dbPass = 'contraseña'; // Contraseña de la base de datos
-        $dbName = 'nombre_bd';  // Nombre de la base de datos
+        $dbHost = '127.0.0.1'; // Host de la base de datos
+        $dbUser = 'root';   // Usuario de la base de datos
+        $dbPass = 'Granate_999'; // Contraseña de la base de datos
+        $dbName = 'tatu';  // Nombre de la base de datos
 
         // Crear conexión
         $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
@@ -22,50 +22,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Iterar sobre los elementos a actualizar
         foreach ($data['items'] as $item) {
-            $idProducto = $item['id'];
-            $cantidad = $item['cantidad'];
+            $tipo_envio_id = $item['tipo_envio_id'];
+            $salidas_diarias = $item['salidas_diarias'];
 
-            // Consultar el stock actual del producto
-            $sqlSelect = "SELECT stock FROM productos WHERE id = ?";
+            $sqlSelect = "SELECT salidas_diarias FROM tipos_envios WHERE tipo_envio_id = ?";
             $stmt = $conn->prepare($sqlSelect);
-            $stmt->bind_param("i", $idProducto);
+            $stmt->bind_param("i", $tipo_envio_id);
             $stmt->execute();
             $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $stockActual = $row['stock'];
+                $salidasDisp = $row['salidas_diarias'];
 
-                // Verificar si hay suficiente stock para la compra
-                if ($cantidad > $stockActual) {
-                    echo json_encode(array("success" => false, "message" => "No hay suficiente stock disponible para el producto con ID $idProducto"));
+                // Verificar
+                if ($salidas_diarias > $salidasDisp) {
+                    echo json_encode(array("success" => false, "message" => "No hay salaidas disponibles para el envio con ID $tipo_envio_id"));
                     exit;
                 }
 
-                // Calcular nuevo stock
-                $nuevoStock = $stockActual - $cantidad;
+                // Calcular cantidad de salidas disponible
+                $nuevasSalidas = $salidasDisp - $salidas_diarias;
 
-                // Actualizar el stock en la base de datos
-                $sqlUpdate = "UPDATE productos SET stock = ? WHERE id = ?";
+                // Actualizar salidas en la base de datos
+                $sqlUpdate = "UPDATE tipos_envios SET salidas_diarias = ? WHERE tipo_envio_id = ?";
                 $stmt = $conn->prepare($sqlUpdate);
-                $stmt->bind_param("ii", $nuevoStock, $idProducto);
+                $stmt->bind_param("ii", $nuevasSalidas, $tipo_envio_id);
                 $stmt->execute();
 
                 if ($stmt->affected_rows > 0) {
                     // Éxito al actualizar el stock
-                    echo json_encode(array("success" => true, "message" => "Stock actualizado correctamente para el producto con ID $idProducto"));
+                    echo json_encode(array("success" => true, "message" => "salidas actualizadas correctamente para el envio con ID $tipo_envio_id"));
                 } else {
-                    echo json_encode(array("success" => false, "message" => "Error al actualizar el stock para el producto con ID $idProducto"));
+                    echo json_encode(array("success" => false, "message" => "Error al actualizar salidas para el envio con ID $tipo_envio_id"));
                 }
             } else {
-                echo json_encode(array("success" => false, "message" => "Producto con ID $idProducto no encontrado"));
+                echo json_encode(array("success" => false, "message" => "envio con ID $tipo_envio_id no encontrado"));
             }
         }
 
         // Cerrar conexión
         $conn->close();
     } else {
-        echo json_encode(array("success" => false, "message" => "Datos incorrectos enviados desde el cliente"));
+        echo json_encode(array("success" => false, "message" => "Datos incorrectos"));
     }
 } else {
     echo json_encode(array("success" => false, "message" => "Método de solicitud no permitido"));

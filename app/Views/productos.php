@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/miestiloProductos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href= "<?php echo base_url("assets/css/estilo.css"); ?>">
+    <link rel="stylesheet" href="assets/css/miestiloProductos.css">
+    <link rel="stylesheet" href="assets/css/miestiloContacto.css">
     <script src="assets/js/app.js" async></script>
-    <title>Productos | Tatu</title>
+    <title>Tatu</title>
     <script src="assets/js/script.js"></script>
     
 </head>
@@ -80,15 +81,13 @@ function pagarClicked() {
 
 </script>
 
-<section class="venta-productos">
-    <div class="container">
-        <img src="assets/img/MeteCajas.jpg" alt="Imagen Principal" class="limited-img">
-    </div>
 
-    <div class="titulo-productos">
-        <h2>Venta de productos</h2>
-    </div>
-</section>
+<div class="imagen-principal">
+    <img src="assets/img/aaaaaaaa.jpg" alt="Imagen Principal">
+</div>
+<div class="titulo-contactos">
+    <h2>Venta de productos</h2>
+</div>
 <section class="contenedor">
     <div class="contenedor-items">
     <?php foreach ($productos as $producto): ?>
@@ -125,7 +124,7 @@ function pagarClicked() {
 </form>
 
             
-        </div>
+          </div>
     </div>
 </section>
 
@@ -190,5 +189,7 @@ function pagarClicked() {
                 // Por simplicidad, se omite la lógica detallada de agregar al carrito
             });
         }
+
+    
 </script>
 </html>

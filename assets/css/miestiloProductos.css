@@ -1,17 +1,9 @@
 
 :root {
-    --naranja: #ff7a00;
-    --azul: #005f99;
-    --gris-claro: #f5f5f5;
-    --gris-oscuro: #333;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--gris-oscuro);
-    margin: 0;
-    padding: 0;
-    background-color: var(--gris-claro);
+  --naranja: #ff7a00;
+  --azul: #005f99;
+  --gris-claro: #f5f5f5;
+  --gris-oscuro: #333;
 }
 .contenedor {
     max-width: 1200px;
@@ -20,8 +12,6 @@ body {
     display: flex;
     justify-content: space-between;
     contain: paint;
-    color: #005f99;
-    align-items:center;
 }
 
 .contenedor .contenedor-items {
@@ -43,30 +33,8 @@ body {
     background-color: #fff; /* Cambiado el color de fondo a blanco */
 }
 
-.limited-img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 5%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    align-self: center;
-}
-.venta-productos{
-    align-items: center;
-}
-.venta-productos h2{
-    font-size: 2rem;
-    margin-top: 4px;
-    color :#005f99;
-    text-align: center;
-}
-.imagen-principal {
-    margin-top: 30px;
-    margin-left: 15px;
-}
 .contenedor .contenedor-items .item .img-item {
     width: 100%;
-    align-items: center;
 }
 
 .contenedor .contenedor-items .item:hover {
@@ -246,7 +214,7 @@ body {
 
 .titulo {
     text-align: center;
-    background-color: #ff7a00; /* Fondo verde */
+    background-color: #165a14; /* Fondo verde */
     color: #fff; /* Color de letra blanco */
     padding: 10px; /* Espaciado interno */
     margin-bottom: 20px; /* Espacio inferior */

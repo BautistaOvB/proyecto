@@ -2,8 +2,7 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\usuario_Model;
-use App\controllers\usuario_controller;
-
+  
 class Login_controller extends BaseController
 {
     public function index()
@@ -16,7 +15,7 @@ class Login_controller extends BaseController
         echo view('login'); 
         echo view('footer');
     } 
-
+  
     public function auth()
     {
         $session = session(); 
@@ -60,7 +59,7 @@ class Login_controller extends BaseController
     }
     public function login()
         {
-        $model = new UsuarioModel();
+        $model = new usuario_Model();
         $usuario = $this->request->getVar('usuario');
         $pass = $this->request->getVar('pass');
 

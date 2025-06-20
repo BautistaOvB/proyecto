@@ -4,7 +4,16 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+
     public function inicio(){
+        
+        echo view('Views\header.php');
+        echo view('Views\index.php');
+        echo view('Views\footer.php');
+    }
+        
+    public function index(): void
+    {
         echo view('Views\header.php');
         echo view('Views\index.php');
         echo view('Views\footer.php');

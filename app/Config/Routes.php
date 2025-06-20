@@ -5,24 +5,20 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('test-db', 'Home::testDB');
 $routes->get('/', 'Home::inicio');
 $routes->get('quienesSomos', 'Home::quienes');
 $routes->get('contactos', 'Home::contacto');
 $routes->get('index', 'Home::inicio');
 $routes->get('terminos', 'Home::termino');
 $routes->get('comercializacion', 'Home::comercializaciones');
-$routes->get('contacto', 'ConsultaController::index');
+$routes->get('contacto', 'Home::contacto');
 
-#$routes->get('register', 'logIn::register');
-$routes->get('logIn', 'logIn::comercializaciones');
-$routes->get('logOut', 'Home::inicio');
-
-$routes->get('iniciarSesion', 'Home::sesiones');
+// ??? $routes->get('iniciarSesion', 'Home::sesiones');
 $routes->get('register', 'Home::registro');
 
 $routes->post('consultas/guardar', 'ConsultaController::guardar');
-$routes->get('contacto', 'ConsultaController::index');
-
+$routes->get('contacto', 'ConsultaController::index'); // posiblemente borrar
 
 // Rutas para el login y panel
 $routes->get('login', 'login_controller::index');
@@ -31,7 +27,7 @@ $routes->get('panel', 'login_controller::index', ['filter' => 'auth']);
 $routes->get('logout', 'login_controller::logout');
 
 // Rutas para el registro
-$routes->get('register', 'usuario_controller::create');
+$routes->get('registro', 'usuario_controller::create');
 $routes->post('enviar-form', 'usuario_controller::formValidation');
 
 

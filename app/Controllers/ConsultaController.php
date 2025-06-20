@@ -67,5 +67,7 @@ public function filtrar()
     // Cargar la vista con las consultas filtradas
     return view('admin_consultas', $data);
 }
+
+ 
 }
 

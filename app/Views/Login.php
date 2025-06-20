@@ -34,7 +34,7 @@
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="register">
-                    <a class="primary" href="<?php echo base_url('/register'); ?>">Registrarse</a>
+                    <a class="primary" href="<?php echo base_url('register'); ?>">Registrarse</a>
                 </div>
             </div>
         </div>
